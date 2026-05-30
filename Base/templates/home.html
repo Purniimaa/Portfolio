@@ -1,0 +1,246 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My First Website</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+    {% if messages %}
+      {% for message in messages %}
+        {% if message.tags %}
+         <script>alert("{{ message }}");</script>
+        {% endif %} 
+        {% endfor %}    
+    {% endif %}
+
+   <nav id = "navbar" class = "flex s-around bg-color">
+    <div class = "left-nav">
+        <h2 class= "t-white">Portfolio</h2>
+    </div>
+    <div class = "right-nav">
+        <ul class = "flex s-around">
+            <li><a href="#home" class="t-white roboto">Home <i class= "fa-solid fa-house"></i></a></li>
+            <li><a href="#about" class="t-white roboto">About me <i class="fa-solid fa-user"></i></a></li>
+            <li><a href="#skills" class="t-white roboto">Skills <i class="fa-solid fa-code"></i></a></li>
+            <li><a href="#projects" class="t-white roboto">Projects <i class="fa-solid fa-diagram-project"></i></a></li>
+            <li><a href="#contact" class="t-white roboto">Contact <i class="fa-solid fa-envelope"></i></a></li>
+        </ul>
+    </div>
+</nav>
+
+<section id="home" class="flex s-around sw-80 m-auto">
+    <div class="home-left flext items-center">
+        <div class="home-content">
+            <h5 class="popinss">Hi I'm</h5>
+            <h1 class="popinss">Purnima Lakha</h1>
+            <h5 class="popinss">A passionate Software developer</h5>
+         <div class="space">
+            <a href="{% static 'images/cv.pdf' %}" target="_blank" class="btn poppins">Resume</a>
+            <a class="btn poppins" id="hireme" href="#contact">Let's have a chitchat</a>
+         </div>
+        </div>
+    </div>
+    <div class="home-right flex s-center items-center">
+      <div class ="circle flex s-center items-center">
+        <img src="{% static 'images/pp.jpg' %}" alt="Profile Picture">
+      </div>
+    </div>
+</section> 
+
+    <section id="about">
+    <h1 class="t center my-2 t-white f-2">About Me</h1>
+    <div class="about-container flex s-around sw-80 m-auto">
+        <div class="about-left flex s-center items-center">
+            <img src="{% static 'images/pp.jpg' %}" alt="Profile Picture">
+        </div>
+       
+       <div class="about-right flex">   
+       <div class ="about-content">
+        <p class="t-white poppins">I’m a passionate and growth-focused aspiring software developer with practical experience in Python, C#, Django, ASP.NET Core, and SQL. I enjoy working on backend systems, designing RESTful APIs, and managing databases efficiently. I’m familiar with Git, testing fundamentals, and modern software development practices.
+<br><br>
+Along with backend development, I also have experience in HTML, CSS, and JavaScript, which helps me create responsive and user-friendly web applications. I’m always eager to learn new technologies, improve my problem-solving skills, and build real-world solutions that create meaningful impact.</p>
+<br>
+        <a href ="#contact" id="hireme" class="btn poppins">Hire Me</a>
+         </div>
+        </div>
+         </div>
+    </section>
+
+<section id="skills">
+    <h1 class="t-center my-2 t-white f-2">Technical Skills</h1>
+
+    <div class="services-container flex s-around sw-80 m-auto">
+
+        <div class="skills-left flex s-center items-center">
+            <img src="{% static 'images/skill.png' %}" alt="Skills Image">
+        </div>
+
+        <div class="skills-right">
+
+            <div class="skill-category">
+                <h3>Programming Languages</h3>
+                <div class="skill-tags">
+                    <span>Python</span>
+                    <span>C#</span>
+                    <span>JavaScript</span>
+                    <span>Java</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3>Web Development</h3>
+                <div class="skill-tags">
+                    <span>Django</span>
+                    <span>ASP.NET Core</span>
+                    <span>HTML</span>
+                    <span>CSS</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3>Tools</h3>
+                <div class="skill-tags">
+                    <span>GitHub</span>
+                    <span>LaTeX</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3>Core Skills</h3>
+                <div class="skill-tags">
+                    <span>Backend Development</span>
+                    <span>REST APIs</span>
+                    <span>Database Management</span>
+                    <span>Version Control</span>
+                    <span>Responsive Design</span>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<section id="projects">
+    <h1 class="t-white f-2">Projects</h1>
+
+    <div class="projects-container">
+
+ 
+
+<div class="project-card">
+    <h2>Finance Tracker</h2>
+    <i class="fa-duotone fa-thin fa-chart-mixed-up-circle-dollar"></i>
+    <p>Personal finance app for tracking income, expenses, and goals.</p>
+    <br>
+     <a href="https://github.com/Purniimaa/FinanceTrack" target="_blank" class="btn poppins" >
+        Github
+    </a>
+</div>
+
+<div class="project-card active">
+    <h2>Customer API</h2>
+    <p>REST API for managing customers and financial transactions.</p>
+    <br>
+     <a href="https://github.com/Purniimaa/CustomerManagement" class="btn poppins" target="_blank">
+        Github
+    </a>
+</div>
+    
+<div class="project-card">
+    <h2>Todo App</h2>
+    <p>Task management app with login and CRUD features.</p>
+    <br>
+     <a href="https://github.com/Purniimaa/Todo_App" target="_blank" class="btn poppins">
+        Github
+    </a>
+</div>
+
+<div class="project-card">
+    <h2>Ecommerce Store</h2>
+    <p>Online antique shopping website with cart and payment system.</p>
+    <br>
+     <a href="https://github.com/Purniimaa/Ecommerce_Site" target="_blank" class="btn poppins">
+        Github
+    </a>
+</div>
+</section>
+
+     <section id="contact" class="m-b-1">
+     <h1 class="t-center my-2 t-white f-2">Contact Me</h1>
+        <div class="contact-container flex s-around sw-80 m-auto">
+        <div class="form" id="contactform">
+        <form method="post" action="/contact/">
+        {% csrf_token %}
+        <div class="name form-div">
+         <input type="text" name="name" class ="poppins" placeholder=" Enter your Name" required>
+        </div>
+
+        <div class="email form-div">
+         <input type="email" name="email" class ="poppins" placeholder=" Enter your Email" required>
+        </div>
+      
+        <div class="phone form-div">
+         <input type="text" name="number" class ="poppins" placeholder=" Enter your Phone number" required>
+        </div>
+
+        <div class="textarea form-div">
+            <textarea name="message" class ="poppins" id="textarea" cols="30" rows="5" class="poppins" placeholder=" Enter your Message" required></textarea>
+        </div>
+
+
+        <button type="submit" class="btn poppins">Send Message</button>
+        </form>
+        </div>
+        </section>
+
+
+<footer id="footer">
+    <ul class="flex s-center w-80 m-auto font-awesome">
+
+        <li>
+            <a href="https://www.facebook.com/poornima.lakha" target="_blank">
+                <i class="fa-brands fa-facebook-f"></i>
+            </a>
+        </li>
+
+        <li>
+            <a href="https://www.instagram.com/purniimaa73/" target="_blank">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+        </li>
+
+        <li>
+            <a href="https://www.linkedin.com/in/purnima-lakha-2b36332a5/" target="_blank">
+                <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+        </li>
+
+    </ul>
+
+    <p class="t-white poppins t-center">
+        Copyright &copy; 2024 Purnima Lakha. All rights reserved.
+    </p>
+</footer>
+
+<script>
+    function showNotification(message, messageType) {
+        const popup = document.getElementById('messagePopup');
+        popup.textContent = message;
+        popup.className = 'message-popup show ' + (messageType.includes('success') ? 'success' : 'error');
+        
+        // Auto-hide after 4 seconds
+        setTimeout(function() {
+            popup.classList.remove('show');
+        }, 4000);
+    }
+</script>
+    </body>
+</html>
