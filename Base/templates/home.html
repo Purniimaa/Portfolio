@@ -177,24 +177,28 @@ Along with backend development, I also have experience in HTML, CSS, and JavaScr
      <h1 class="t-center my-2 t-white f-2">Contact Me</h1>
         <div class="contact-container flex s-around sw-80 m-auto">
         <div class="form" id="contactform">
-        <form method="post" action="/contact/">
+        <form method="post">
         {% csrf_token %}
+        
         <div class="name form-div">
-         <input type="text" name="name" class ="poppins" placeholder=" Enter your Name" required>
+         {{ form.name }}
         </div>
 
         <div class="email form-div">
-         <input type="email" name="email" class ="poppins" placeholder=" Enter your Email" required>
+         {{ form.email }}
         </div>
       
         <div class="phone form-div">
-         <input type="text" name="number" class ="poppins" placeholder=" Enter your Phone number" required>
+         {{ form.number }}
         </div>
 
         <div class="textarea form-div">
-            <textarea name="message" class ="poppins" id="textarea" cols="30" rows="5" class="poppins" placeholder=" Enter your Message" required></textarea>
+         {{ form.message }}
         </div>
 
+        <div class="captcha form-div">
+         {{ form.captcha }}
+        </div>
 
         <button type="submit" class="btn poppins">Send Message</button>
         </form>

@@ -1,33 +1,32 @@
 from django.shortcuts import render
+from django.http import HttpResponse
 from Base.models import Contact
 from django.contrib import messages
+from .forms import ContactForm
 
 def home(request):
-    return render(request, 'home.html')
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Your message has been sent successfully.")
+            return render(request, 'home.html', {'form': ContactForm()})
+        else:
+            messages.error(request, "Please correct the errors in the form.")
+    else:
+        form = ContactForm()
+    return render(request, 'home.html', {'form': form})
     
 def contact(request):
     if request.method == 'POST':
-        name = request.POST.get('name')
-        email = request.POST.get('email')
-        number = request.POST.get('number')
-        message = request.POST.get('message')
-        
-        # Validate inputs
-        if len(name) < 2 or len(name) > 30:
-            messages.error(request, "Name must be between 2 and 30 characters.")
-            return render(request, 'home.html')
-        
-        if len(email) < 5 or len(email) > 50:
-            messages.error(request, "Invalid email.")
-            return render(request, 'home.html')
-        
-        if len(number) < 3 or len(number) > 10:
-            messages.error(request, "Invalid phone number.")
-            return render(request, 'home.html')
-        
-        
-        Contact.objects.create(name=name, email=email, number=number, message=message)
-        messages.success(request, "Your message has been sent successfully.")
-        return render(request, 'home.html')
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Your message has been sent successfully.")
+            return render(request, 'home.html', {'form': ContactForm()})
+        else:
+            messages.error(request, "Please correct the errors in the form.")
+            return render(request, 'home.html', {'form': form})
     
-    return render(request, 'home.html')
+    form = ContactForm()
+    return render(request, 'home.html', {'form': form})

@@ -402,6 +402,33 @@ body{
 }
 
 
+.captcha {
+    margin: 1.5rem 0;
+    padding: 1.2rem;
+    background: var(--card-light);
+    border-radius: 15px;
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+}
+
+.captcha:hover {
+    border-color: var(--pink);
+    box-shadow: 0 0 15px rgba(255,77,166,.2);
+}
+
+.captcha iframe {
+    border-radius: 8px;
+}
+
+.g-recaptcha {
+    transform: scale(1);
+    transform-origin: 0 0;
+}
+
+
 #footer{
     position:relative;
     padding:4rem 5% 2rem;
